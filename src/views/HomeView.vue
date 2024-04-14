@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <FilterNav></FilterNav>
+    <FilterNav @filterValue="current=$event" :current="current"></FilterNav>
     <div v-for="project in projects" :key="project.id">
       <SingleProject :project="project" :complete="project.complete" @delete="deleteProject" @complete="completeProject"></SingleProject>
     </div>
@@ -15,7 +15,8 @@ export default {
   name: 'HomeView',
   data() {
     return {
-      projects: []
+      projects: [],
+      current: "all"
     }
   },
   components: {
