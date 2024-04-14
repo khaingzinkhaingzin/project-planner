@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     <h1>Home</h1>
+    <FilterNav></FilterNav>
     <div v-for="project in projects" :key="project.id">
       <SingleProject :project="project" :complete="project.complete" @delete="deleteProject" @complete="completeProject"></SingleProject>
     </div>
@@ -8,6 +9,7 @@
 </template>
 
 <script>
+import FilterNav from '../components/FilterNav'
 import SingleProject from '../components/SingleProject'
 export default {
   name: 'HomeView',
@@ -17,6 +19,7 @@ export default {
     }
   },
   components: {
+    FilterNav,
     SingleProject,
   },
   methods: {
